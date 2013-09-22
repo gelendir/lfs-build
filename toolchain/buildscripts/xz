@@ -1,0 +1,4 @@
+cd $LFS/sources/xz-5.0.4
+./configure --prefix=/tools
+make
+make install

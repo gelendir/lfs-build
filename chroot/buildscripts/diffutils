@@ -1,0 +1,8 @@
+cd /sources/diffutils-3.2
+
+#fix incompatibility glibc 2.17
+sed -i -e '/gets is a/d' lib/stdio.in.h
+
+./configure --prefix=/usr
+make
+make install

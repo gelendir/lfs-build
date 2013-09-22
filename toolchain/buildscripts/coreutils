@@ -1,0 +1,4 @@
+cd $LFS/sources/coreutils-8.21
+./configure --prefix=/tools --enable-install-program=hostname
+make
+make install

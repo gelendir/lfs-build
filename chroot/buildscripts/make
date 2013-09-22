@@ -1,0 +1,5 @@
+cd /sources/make-3.82
+patch -Np1 -i ../make-3.82-upstream_fixes-3.patch
+./configure --prefix=/usr
+make
+make install

@@ -1,0 +1,3 @@
+cd $LFS/sources/dejagnu-1.5
+./configure --prefix=/tools
+make install

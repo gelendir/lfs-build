@@ -1,0 +1,4 @@
+cd $LFS/sources/file-5.13
+./configure --prefix=/tools
+make
+make install

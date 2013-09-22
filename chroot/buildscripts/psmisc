@@ -1,0 +1,8 @@
+cd /sources/psmisc-22.20
+./configure --prefix=/usr
+make
+make install
+
+#FHS says fuser and killall should be in /bin
+mv -v /usr/bin/fuser   /bin
+mv -v /usr/bin/killall /bin

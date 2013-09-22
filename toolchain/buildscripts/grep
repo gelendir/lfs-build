@@ -1,0 +1,4 @@
+cd $LFS/sources/grep-2.14
+./configure --prefix=/tools
+make
+make install

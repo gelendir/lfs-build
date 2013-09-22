@@ -1,0 +1,14 @@
+cd /sources/procps-ng-3.3.6
+./configure --prefix=/usr                           \
+            --exec-prefix=                          \
+            --libdir=/usr/lib                       \
+            --docdir=/usr/share/doc/procps-ng-3.3.6 \
+            --disable-static                        \
+            --disable-skill                         \
+            --disable-kill
+make
+make install
+
+#move to /lib in case /usr cannot be mounted
+mv -v /usr/lib/libprocps.so.* /lib
+ln -sfv ../../lib/libprocps.so.1.1.0 /usr/lib/libprocps.so

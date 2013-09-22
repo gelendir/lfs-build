@@ -1,0 +1,11 @@
+#compile lfs-specific udev rules
+cd /sources/systemd-197
+tar -xvf ../udev-lfs-197-2.tar.bz2
+make -f udev-lfs-197-2/Makefile.lfs
+make -f udev-lfs-197-2/Makefile.lfs install
+
+#initialize hardware database
+build/udevadm hwdb --update
+
+#setup network rules
+bash udev-lfs-197-2/init-net-rules.sh

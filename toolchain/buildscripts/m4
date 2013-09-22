@@ -1,0 +1,5 @@
+cd $LFS/sources/m4-1.4.16
+sed -i -e '/gets is a/d' lib/stdio.in.h
+./configure --prefix=/tools
+make
+make install

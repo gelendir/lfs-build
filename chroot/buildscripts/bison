@@ -1,0 +1,8 @@
+cd /sources/bison-2.7
+./configure --prefix=/usr
+
+#force internationalization support
+echo '#define YYENABLE_NLS 1' >> lib/config.h
+
+make
+make install

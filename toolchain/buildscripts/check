@@ -1,0 +1,4 @@
+cd $LFS/sources/check-0.9.9
+./configure --prefix=/tools
+make
+make install

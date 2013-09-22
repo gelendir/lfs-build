@@ -1,0 +1,18 @@
+cd /sources/inetutils-1.9.1
+
+#fix incompatibility with glibc 2.17
+sed -i -e '/gets is a/d' lib/stdio.in.h
+
+./configure --prefix=/usr  \
+    --libexecdir=/usr/sbin \
+    --localstatedir=/var   \
+    --disable-ifconfig     \
+    --disable-logger       \
+    --disable-syslogd      \
+    --disable-whois        \
+    --disable-servers
+make
+make install
+
+#move programs to /bin instead of /usr/bin
+mv -v /usr/bin/{hostname,ping,ping6,traceroute} /bin

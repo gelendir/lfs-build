@@ -1,0 +1,4 @@
+cd $LFS/sources/gzip-1.5
+./configure --prefix=/tools
+make
+make install

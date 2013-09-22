@@ -1,0 +1,4 @@
+cd /sources/xz-5.0.4
+./configure --prefix=/usr --libdir=/lib --docdir=/usr/share/doc/xz-5.0.4
+make
+make pkgconfigdir=/usr/lib/pkgconfig install

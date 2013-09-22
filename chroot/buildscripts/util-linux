@@ -1,0 +1,10 @@
+cd /sources/util-linux-2.22.2
+
+#use /var/lib/hwclock instead of /etc/adjtime
+sed -i -e 's@etc/adjtime@var/lib/hwclock/adjtime@g' \
+    $(grep -rl '/etc/adjtime' .)
+mkdir -pv /var/lib/hwclock
+
+./configure --disable-su --disable-sulogin --disable-login
+make
+make install

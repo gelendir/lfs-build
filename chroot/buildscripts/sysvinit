@@ -1,0 +1,11 @@
+cd /sources/sysvinit-2.88dsf
+
+#make TERM message more clear when switching runlevels
+sed -i 's@Sending processes@& configured via /etc/inittab@g' src/init.c
+
+#deactivate wall, mountpoint and utmpdump (already in util-linux)
+sed -i -e '/utmpdump/d' \
+       -e '/mountpoint/d' src/Makefile
+
+make -C src
+make -C src install

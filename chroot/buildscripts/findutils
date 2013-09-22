@@ -1,0 +1,10 @@
+cd /sources/findutils-4.4.2
+./configure --prefix=/usr                   \
+            --libexecdir=/usr/lib/findutils \
+            --localstatedir=/var/lib/locate
+make
+make install
+
+#move find program to /bin
+mv -v /usr/bin/find /bin
+sed -i 's/find:=${BINDIR}/find:=\/bin/' /usr/bin/updatedb

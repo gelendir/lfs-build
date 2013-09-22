@@ -1,0 +1,4 @@
+cd $LFS/sources/findutils-4.4.2
+./configure --prefix=/tools
+make
+make install

@@ -1,0 +1,4 @@
+cd $LFS/sources/sed-4.2.2
+./configure --prefix=/tools
+make
+make install

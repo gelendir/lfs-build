@@ -1,0 +1,4 @@
+cd $LFS/sources/gawk-4.0.2
+./configure --prefix=/tools
+make
+make install

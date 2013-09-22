@@ -1,0 +1,18 @@
+cd /sources/readline-6.2
+
+#prevent readline libs in toolchain from being moved accidentally
+sed -i '/MV.*old/d' Makefile.in
+sed -i '/{OLDSUFF}/c:' support/shlib-install
+
+patch -Np1 -i ../readline-6.2-fixes-1.patch
+./configure --prefix=/usr --libdir=/lib
+make SHLIB_LIBS=-lncurses
+make install
+
+#move static libraries to their proper place
+mv -v /lib/lib{readline,history}.a /usr/lib
+
+#remove old readline libs and link them to /usr/lib
+rm -v /lib/lib{readline,history}.so
+ln -sfv ../../lib/libreadline.so.6 /usr/lib/libreadline.so
+ln -sfv ../../lib/libhistory.so.6 /usr/lib/libhistory.so

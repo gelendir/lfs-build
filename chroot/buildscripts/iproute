@@ -1,0 +1,15 @@
+cd /sources/iproute2-3.8.0
+
+#deactivate arpd, not used a lot on linux systems
+sed -i '/^TARGETS/s@arpd@@g' misc/Makefile
+sed -i /ARPD/d Makefile
+sed -i 's/arpd.8//' man/man8/Makefile
+
+#remove compiler warning
+sed -i 's/-Werror//' Makefile
+
+#compile
+make DESTDIR=
+make DESTDIR=              \
+     MANDIR=/usr/share/man \
+     DOCDIR=/usr/share/doc/iproute2-3.8.0 install

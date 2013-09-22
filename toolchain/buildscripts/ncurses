@@ -1,0 +1,5 @@
+cd $LFS/sources/ncurses-5.9
+./configure --prefix=/tools --with-shared \
+    --without-debug --without-ada --enable-overwrite
+make
+make install

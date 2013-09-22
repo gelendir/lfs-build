@@ -1,0 +1,4 @@
+cd $LFS/sources/make-3.82
+./configure --prefix=/tools
+make
+make install
